@@ -1,0 +1,19 @@
+{
+  "name": "cars-ui",
+  "version": "0.0.0",
+  "authors": [
+    "Alexander Alexeychuk <kikudjiro@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "backbone.marionette": "marionette#~2.4.3",
+    "requirejs": "~2.1.20"
+  }
+}

@@ -13,9 +13,6 @@
       "./mixins"
     ]
   },
-  "note": {
-    "dataSource": "db"
-  },
   "message": {
     "dataSource": "db",
     "public": true
