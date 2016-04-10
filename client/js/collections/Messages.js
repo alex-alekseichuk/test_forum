@@ -7,6 +7,6 @@ define([
 
 	return Backbone.Collection.extend({
 		model: Message,
-		url: 'api/messages'
+		url: 'api/messages/list'
 	});
 });

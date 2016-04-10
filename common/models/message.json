@@ -18,5 +18,10 @@
   "validations": [],
   "relations": {},
   "acls": [],
-  "methods": {}
+  "methods": {},
+  "scopes": {
+    "list": {
+      "fields": ["id", "title"]
+    }
+  }
 }
