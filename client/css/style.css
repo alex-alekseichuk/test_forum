@@ -12,6 +12,7 @@ body {
 .header,
 .marketing,
 .footer {
+  margin-top: 10px;
     padding-right: 15px;
     padding-left: 15px;
 }

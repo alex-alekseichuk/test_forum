@@ -1,12 +1,12 @@
 
 define([
 	'backbone',
-	'models/Message'
-], function (Backbone, Message) {
+	'models/MessageItem'
+], function (Backbone, MessageItem) {
 	'use strict';
 
 	return Backbone.Collection.extend({
-		model: Message,
+		model: MessageItem,
 		url: 'api/messages/list'
 	});
 });

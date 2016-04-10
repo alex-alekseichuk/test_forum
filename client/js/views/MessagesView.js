@@ -1,23 +1,29 @@
 define([
     'marionette',
     'templates',
-    'collections/Messages',
+    'collections/MessageItems',
     'views/MessagesItemView'
-], function (Marionette, templates, Messages, MessagesItemView) {
+], function (Marionette, templates, MessageItems, MessagesItemView) {
     'use strict';
 
-    return Marionette.CompositeView.extend({
-        childView: MessagesItemView,
-        childViewContainer: "tbody",
-        template: templates.messages,
+  var EmptyListItem = Marionette.ItemView.extend({
+    tagName: 'tr',
+    template: '<td>No messages</td>'
+  });
 
-        initialize: function() {
-            var view = this;
-            this.collection = new Messages();
-            this.collection.fetch({success: function() {
-                view.render();
-            }});
-        }
-    });
+  return Marionette.CompositeView.extend({
+    childView: MessagesItemView,
+    childViewContainer: "tbody",
+    template: templates.messages,
+    emptyView: EmptyListItem,
+
+    initialize: function() {
+      var view = this;
+      this.collection = new MessageItems();
+      this.collection.fetch({success: function() {
+        view.render();
+      }});
+    }
+  });
 
 });

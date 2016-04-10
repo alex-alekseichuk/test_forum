@@ -21,7 +21,8 @@ define([
         events: {
             'click #btnEdit': 'onEdit',
             'click #btnSave': 'onSave',
-            'click #btnCancel': 'onCancel'
+            'click #btnCancel': 'onCancel',
+            'click #btnDelete': 'onDelete'
         },
 
         modelEvents: {
@@ -72,6 +73,13 @@ define([
             this.mode = 'view';
             this.$('#frmMessage').hide();
             this.$('#view').show();
+        },
+        onDelete: function() {
+          if (confirm("Are you sure to delete this message?")){
+            this.model.destroy({success:function(){
+              window.app.execute('app:messages');
+            }});
+          }
         }
 
     });

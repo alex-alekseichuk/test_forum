@@ -34,15 +34,9 @@ require.config({
 
 require([
     'app',
-    //'modules/Pages',
     'jquery',
     'bootstrap'
-], function (app/*, PagesModule*/) {
+], function (app) {
     'use strict';
-
-    //app.addInitializer(function() {
-    //    PagesModule.start();
-    //});
-
     app.start();
 });

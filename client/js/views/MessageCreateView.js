@@ -34,7 +34,7 @@ define([
 
             this.model.save({title: title, text: text}, {
                 success: function (model, response) {
-                  window.app.commands.execute('app:messages');
+                  window.app.execute('app:messages');
                 },
                 error: function (model, response) {
                     alert("Can't save message");
@@ -43,7 +43,7 @@ define([
             });
         },
         onCancel: function() {
-            window.app.commands.execute('app:messages');
+            window.app.execute('app:messages');
         }
 
     });

@@ -1,9 +1,11 @@
 <div id="view">
-  <h3><%= title %></h3>
+  <h3><%=app.htmls(title)%></h3>
   <p>
-    <%= text %>
+    <%=app.htmls(text)%>
   </p>
   <button id="btnEdit" class="btn">Edit</button>
+  <button id="btnDelete" class="btn btn-danger">Delete</button>
+
 </div>
 <form id="frmMessage" style="display: none;">
   <div class="form-group">
@@ -15,4 +17,5 @@
   </div>
   <button id="btnSave" type="submit" class="btn btn-default">Save</button>
   <button id="btnCancel" class="btn">Cancel</button>
+
 </form>

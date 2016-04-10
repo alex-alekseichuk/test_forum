@@ -31,7 +31,6 @@ define([
     }
   });
 
-
   var _updateMenu = function(path) {
     var active = menu.collection.findWhere({active: true});
     if (active)
@@ -39,7 +38,6 @@ define([
     active = menu.collection.findWhere({path: path});
     if (active)
       active.set('active', true);
-    menu.render();
   };
 
   app.router = new Marionette.AppRouter({
@@ -55,7 +53,6 @@ define([
       showMessage: function(messageId) {
         _updateMenu("message");
         var message = new Message({id:messageId});
-
         app.main.show(new MessageView({model: message}));
       }
     },
@@ -67,11 +64,18 @@ define([
   });
 
   app.commands.setHandler("app:messages", function() {
-      app.router.options.controller.showMessages();
+    app.router.navigate('/', {replace:true});
+    app.router.options.controller.showMessages();
   });
-  app.commands.setHandler("app:message", function(message) {
-      app.router.options.controller.showMessage(message.get('id'));
+
+  app.commands.setHandler("app:message", function(item) {
+    app.router.navigate('message/' + item.id, {replace:true});
+    app.router.options.controller.showMessage(item.id);
   });
+
+  app.htmls = function(str) {
+    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  };
 
   return window.app = app;
 });
